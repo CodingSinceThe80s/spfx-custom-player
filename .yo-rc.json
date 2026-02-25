@@ -1,0 +1,18 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.16.0",
+    "sdksVersions": {},
+    "version": "1.21.1",
+    "libraryName": "spfx-custom-player",
+    "libraryId": "37cb0cc7-87ff-4d52-9269-52f3664bac51",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "spfx-custom-player",
+    "solutionShortDescription": "spfx-custom-player description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

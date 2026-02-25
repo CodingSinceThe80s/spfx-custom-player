@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "html-5-custom-video-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/html5CustomVideo/Html5CustomVideoWebPart.js",
+          "manifest": "./src/webparts/html5CustomVideo/Html5CustomVideoWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "Html5CustomVideoWebPartStrings": "lib/webparts/html5CustomVideo/loc/{locale}.js"
+  }
+}

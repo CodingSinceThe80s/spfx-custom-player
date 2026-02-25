@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spfx-custom-player-client-side-solution",
+    "id": "37cb0cc7-87ff-4d52-9269-52f3664bac51",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.21.1"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "spfx-custom-player description"
+      },
+      "longDescription": {
+        "default": "spfx-custom-player description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "spfx-custom-player Feature",
+        "description": "The feature that activates elements of the spfx-custom-player solution.",
+        "id": "8dac959c-c49a-4a11-ba0d-fca4910c27c5",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/spfx-custom-player.sppkg"
+  }
+}
