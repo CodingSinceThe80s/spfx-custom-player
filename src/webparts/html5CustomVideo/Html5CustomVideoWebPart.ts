@@ -3,7 +3,9 @@ import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
   type IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  PropertyPaneTextField,
+  PropertyPaneToggle,
+  PropertyPaneDropdown
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { IReadonlyTheme } from '@microsoft/sp-component-base';
@@ -14,6 +16,13 @@ import { IHtml5CustomVideoProps } from './components/IHtml5CustomVideoProps';
 
 export interface IHtml5CustomVideoWebPartProps {
   description: string;
+  videoUrl: string;
+  videoTitle: string;
+  autoplay: boolean;
+  controls: boolean;
+  preload: string;
+  width: string;
+  height: string;
 }
 
 export default class Html5CustomVideoWebPart extends BaseClientSideWebPart<IHtml5CustomVideoWebPartProps> {
@@ -29,7 +38,14 @@ export default class Html5CustomVideoWebPart extends BaseClientSideWebPart<IHtml
         isDarkTheme: this._isDarkTheme,
         environmentMessage: this._environmentMessage,
         hasTeamsContext: !!this.context.sdks.microsoftTeams,
-        userDisplayName: this.context.pageContext.user.displayName
+        userDisplayName: this.context.pageContext.user.displayName,
+        videoUrl: this.properties.videoUrl || '',
+        videoTitle: this.properties.videoTitle || '',
+        autoplay: this.properties.autoplay || false,
+        controls: this.properties.controls !== false,
+        preload: this.properties.preload || 'auto',
+        width: this.properties.width || '100%',
+        height: this.properties.height || '540px'
       }
     );
 
@@ -106,10 +122,49 @@ export default class Html5CustomVideoWebPart extends BaseClientSideWebPart<IHtml
           },
           groups: [
             {
-              groupName: strings.BasicGroupName,
+              groupName: strings.VideoSourceGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                PropertyPaneTextField('videoUrl', {
+                  label: strings.VideoUrlLabel,
+                  description: strings.VideoUrlDescription,
+                  placeholder: 'https://example.com/video.mp4'
+                }),
+                PropertyPaneTextField('videoTitle', {
+                  label: strings.VideoTitleLabel
+                })
+              ]
+            },
+            {
+              groupName: strings.PlayerSettingsGroupName,
+              groupFields: [
+                PropertyPaneToggle('autoplay', {
+                  label: strings.AutoplayLabel
+                }),
+                PropertyPaneToggle('controls', {
+                  label: strings.ControlsLabel
+                }),
+                PropertyPaneDropdown('preload', {
+                  label: strings.PreloadLabel,
+                  options: [
+                    { key: 'auto', text: 'Auto' },
+                    { key: 'metadata', text: 'Metadata' },
+                    { key: 'none', text: 'None' }
+                  ]
+                })
+              ]
+            },
+            {
+              groupName: strings.DimensionsGroupName,
+              groupFields: [
+                PropertyPaneTextField('width', {
+                  label: strings.WidthLabel,
+                  description: strings.WidthDescription,
+                  placeholder: '100%'
+                }),
+                PropertyPaneTextField('height', {
+                  label: strings.HeightLabel,
+                  description: strings.HeightDescription,
+                  placeholder: '540px'
                 })
               ]
             }

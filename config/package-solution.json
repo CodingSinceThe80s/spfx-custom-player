@@ -3,7 +3,7 @@
   "solution": {
     "name": "spfx-custom-player-client-side-solution",
     "id": "37cb0cc7-87ff-4d52-9269-52f3664bac51",
-    "version": "1.0.0.0",
+    "version": "1.0.0.1",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
@@ -30,7 +30,7 @@
         "title": "spfx-custom-player Feature",
         "description": "The feature that activates elements of the spfx-custom-player solution.",
         "id": "8dac959c-c49a-4a11-ba0d-fca4910c27c5",
-        "version": "1.0.0.0"
+        "version": "1.0.0.1"
       }
     ]
   },
